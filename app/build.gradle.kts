@@ -13,6 +13,10 @@ repositories {
 android {
     compileSdk = Config.compileSdk
 
+ buildFeatures {
+        dataBinding = true
+    }
+
     defaultConfig {
         applicationId = Config.packageName
         minSdk = Config.minSDK
@@ -24,6 +28,16 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments += mapOf(
+                            "room.schemaLocation" to "$projectDir/schemas",
+                            "room.incremental" to "true",
+                            "room.expandProjection" to "true"
+                        )
+                    }
+}
     }
 
     buildTypes {
@@ -66,14 +80,18 @@ dependencies {
     implementation(Dependencies.Android.appCompat)
     implementation(Dependencies.Android.material)
 
+    //Lifecycle
     implementation(Dependencies.Lifecycle.lifeCycleExt)
-
+    implementation(Dependencies.Lifecycle.liveData)
+    implementation(Dependencies.Lifecycle.viewModel)
 
     // Dagger
     implementation(Dependencies.Dagger.dagger)
+    kapt(Dependencies.Dagger.daggerCompiler)
     implementation(Dependencies.Dagger.annotationProcessor)
 
     // Room
+    implementation(Dependencies.Room.runtime)
     implementation(Dependencies.Room.ktx)
     kapt(Dependencies.Room.compiler)
 
@@ -86,6 +104,7 @@ dependencies {
 
     //Okhttp
     implementation(Dependencies.Okhttp.okhttp)
+    implementation(Dependencies.Okhttp.interceptor)
 
 
     //Coroutines

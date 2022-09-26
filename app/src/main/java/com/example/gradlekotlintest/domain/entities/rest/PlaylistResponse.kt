@@ -1,16 +1,17 @@
 package com.example.gradlekotlintest.domain.entities.rest
 
+import com.example.gradlekotlintest.domain.entities.room.PlaylistRoom
 import com.google.gson.annotations.SerializedName
 
-class PlaylistResponse(
-@SerializedName("id") val id: Int,
-@SerializedName("title") val title: String,
-@SerializedName("duration") val duration: Int,
-@SerializedName("picture") val picture: String,
-@SerializedName("creation_date") val creation_date: String,
-@SerializedName("creator") val creator: Creator,
-@SerializedName("type") val type: String,
-@SerializedName("tracks") val tracks: Tracks
+data class PlaylistResponse(
+    @SerializedName("id") val id: Int,
+    @SerializedName("title") var title: String,
+    @SerializedName("duration") val duration: Int,
+    @SerializedName("picture") val picture: String,
+    @SerializedName("creation_date") val creation_date: String,
+    @SerializedName("creator") val creator: Creator,
+    @SerializedName("type") val type: String,
+    @SerializedName("tracks") val tracks: Tracks
 )
 
 data class Tracks(
@@ -43,4 +44,13 @@ data class Album(
     @SerializedName("cover") val cover: String,
     @SerializedName("tracklist") val track_list: String
 
+)
+
+fun PlaylistResponse.toPlaylistRoom() = PlaylistRoom(
+    playlistId = this.id,
+    title = this.title,
+    cover = this.picture,
+    author = this.creator.toString(),
+    duration = this.duration.toString(),
+    creatorId = this.creator.id,
 )

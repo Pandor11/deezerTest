@@ -9,11 +9,13 @@ object Dependencies {
     object Dagger {
         const val version = "2.43.2"
         const val dagger = "com.google.dagger:dagger-android:$version"
+        const val daggerCompiler = "com.google.dagger:dagger-compiler:$version"
         const val annotationProcessor = "com.google.dagger:dagger-android-processor:$version"
     }
 
     object Room {
-        private const val version = "2.3.0"
+        private const val version = "2.4.3"
+        const val runtime = "androidx.room:room-runtime:$version"
         const val ktx = "androidx.room:room-ktx:$version"
         const val compiler = "androidx.room:room-compiler:$version"
     }
@@ -30,10 +32,14 @@ object Dependencies {
         const val material = "com.google.android.material:material:1.4.0"
         const val constraint = "androidx.constraintlayout:constraintlayout:2.0.1"
         const val recycler = "androidx.recyclerview:recyclerview:1.1.0"
+
     }
 
     object Lifecycle {
+        private const val version = "2.4.0"
         const val lifeCycleExt = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+        const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:$version"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
     }
 
     object Retrofit {
@@ -44,8 +50,8 @@ object Dependencies {
     }
 
     object Okhttp {
-        const val okhttp = "com.squareup.okhttp3:okhttp"
-        const val interceptor = "com.squareup.okhttp3:logging-interceptor"
+        const val okhttp = "com.squareup.okhttp3:okhttp:4.10.0"
+        const val interceptor = "com.squareup.okhttp3:logging-interceptor:4.10.0"
     }
 
     object Glide {

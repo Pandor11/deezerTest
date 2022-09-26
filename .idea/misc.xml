@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Jess/AndroidStudioProjects/GradleKotlinTest/app/src/main/res/layout/activity_main.xml" value="0.15625" />
+        <entry key="..\:/Users/Jess/AndroidStudioProjects/GradleKotlinTest/app/src/main/res/layout/activity_playlist.xml" value="0.15625" />
+        <entry key="..\:/Users/Jess/AndroidStudioProjects/GradleKotlinTest/app/src/main/res/layout/fragment_main.xml" value="0.32727272727272727" />
+        <entry key="..\:/Users/Jess/AndroidStudioProjects/GradleKotlinTest/app/src/main/res/layout/fragment_playlist.xml" value="0.15625" />
+        <entry key="..\:/Users/Jess/AndroidStudioProjects/GradleKotlinTest/app/src/main/res/layout/fragment_playlists.xml" value="0.1" />
+        <entry key="..\:/Users/Jess/AndroidStudioProjects/GradleKotlinTest/app/src/main/res/layout/playlists_item.xml" value="0.1" />
+        <entry key="..\:/Users/Jess/AndroidStudioProjects/GradleKotlinTest/app/src/main/res/layout/track_item.xml" value="0.33489583333333334" />
       </map>
     </option>
   </component>
