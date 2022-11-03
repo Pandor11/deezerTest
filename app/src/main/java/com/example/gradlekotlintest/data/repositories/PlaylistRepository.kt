@@ -1,11 +1,11 @@
 package com.example.gradlekotlintest.data.repositories
 
 
+import android.util.Log
 import com.example.gradlekotlintest.domain.entities.rest.PlaylistResponse
-import com.example.gradlekotlintest.domain.entities.room.PlaylistRoom
-import com.example.gradlekotlintest.domain.entities.room.toTrackRoom
 import com.example.gradlekotlintest.domain.repositories.PlaylistLocalDataSource
 import com.example.gradlekotlintest.domain.repositories.PlaylistRemoteDataSource
+import kotlin.math.log
 
 
 class PlaylistRepository(
@@ -13,15 +13,16 @@ class PlaylistRepository(
     private val remoteDataSource: PlaylistRemoteDataSource
 ) {
     suspend fun savePlaylist(playlistResponse: PlaylistResponse) {
-        playlistResponse.tracks.trackList.forEach {
-            playlistLocalDataSource.saveTrack(it)
-        }
-        playlistLocalDataSource.savePlaylist(playlistResponse)
+        val tracks = playlistResponse.tracks.trackList
+        val ids = ArrayList<Int>()
+        tracks.forEach { ids.add(it.id) }
+        playlistLocalDataSource.saveTracks(tracks)
+        playlistLocalDataSource.saveCrossRef(ids, playlistResponse.id)
     }
 
-    suspend fun getPlaylistFromRemote(playlistId: Int) = remoteDataSource.getPlaylist(playlistId)
+    suspend fun getPlaylist(playlistId: Int) = remoteDataSource.getPlaylist(playlistId)
 
-    suspend fun getPlaylistFromLocal(playlistId: Int) =
+    fun getPlaylistFromLocal(playlistId: Int) =
         playlistLocalDataSource.getPlaylist(playlistId)
 }
 

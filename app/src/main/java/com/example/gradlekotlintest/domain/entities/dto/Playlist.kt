@@ -3,6 +3,7 @@ package com.example.gradlekotlintest.domain.entities.dto
 import com.example.gradlekotlintest.domain.entities.room.PlaylistRoom
 import com.example.gradlekotlintest.domain.entities.room.PlaylistWithTracks
 import com.example.gradlekotlintest.presentation.adapters.IRecyclerItemViewModel
+import com.example.gradlekotlintest.utils.secondsIntoDate
 
 
 data class Playlist (

@@ -1,7 +1,7 @@
 package com.example.gradlekotlintest.domain.entities.room
 
 import androidx.room.*
-import com.example.gradlekotlintest.data.local.room.TrackTypeConverter
+
 import com.example.gradlekotlintest.domain.entities.dto.Playlist
 import com.example.gradlekotlintest.domain.entities.rest.PlaylistResponse
 import com.example.gradlekotlintest.domain.entities.room.PlaylistRoom.Companion.TABLE_NAME

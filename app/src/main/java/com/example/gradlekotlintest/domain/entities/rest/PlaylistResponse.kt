@@ -1,6 +1,7 @@
 package com.example.gradlekotlintest.domain.entities.rest
 
 import com.example.gradlekotlintest.domain.entities.room.PlaylistRoom
+import com.example.gradlekotlintest.utils.secondsIntoDate
 import com.google.gson.annotations.SerializedName
 
 data class PlaylistResponse(
@@ -50,7 +51,7 @@ fun PlaylistResponse.toPlaylistRoom() = PlaylistRoom(
     playlistId = this.id,
     title = this.title,
     cover = this.picture,
-    author = this.creator.toString(),
-    duration = this.duration.toString(),
+    author = this.creator.name,
+    duration = secondsIntoDate(this.duration.toBigDecimal()),
     creatorId = this.creator.id,
 )
