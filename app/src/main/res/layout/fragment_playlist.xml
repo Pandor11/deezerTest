@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="adapter"
+            type="com.example.gradlekotlintest.presentation.adapters.TrackRecyclerViewAdapter"/>
+
+        <variable
+            name="playlist"
+            type="com.example.gradlekotlintest.domain.entities.dto.Playlist"/>
+
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.activities.PlaylistActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+      >
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:fitsSystemWindows="true"
+            >
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                android:fitsSystemWindows="true">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimaryDark"
+                    android:fitsSystemWindows="true">
+
+
+                    <RelativeLayout
+                        android:id="@+id/playlist_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/playlist_covers"
+                            android:layout_width="128dp"
+                            android:layout_height="128dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="56dp"
+                            android:fitsSystemWindows="true"
+                            android:scaleType="centerCrop"
+                            android:src="@{playlist.cover}"
+                            tools:src="@drawable/ic_launcher_foreground" />
+
+                        <TextView
+                            android:id="@+id/playlist_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/playlist_covers"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{playlist.title}"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/playlist_author"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/playlist_title"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{playlist.author}"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/playlist_duration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/playlist_author"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="@{playlist.duration}"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="16sp" />
+
+
+                    </RelativeLayout>
+                </FrameLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:setAdapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/track_item"
+            android:background="@color/colorPrimary"
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

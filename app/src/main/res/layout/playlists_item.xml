@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="playlist"
+            type="com.example.gradlekotlintest.domain.entities.dto.Playlist" />
+
+        <variable
+            name="adapter"
+            type="com.example.gradlekotlintest.presentation.adapters.PlaylistsRecyclerViewAdapter" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:orientation="horizontal">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="14dp"
+           >
+
+            <ImageView
+                android:id="@+id/playlist_cover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitStart"
+                android:src="@{playlist.cover}">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/playlist_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:background="@color/colorPrimaryDark"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="center"
+                android:paddingBottom="4dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:maxLines="1"
+                android:layout_gravity="bottom"
+                android:scrollHorizontally="true"
+                android:text="@{playlist.title}">
+
+            </TextView>
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+</layout>
